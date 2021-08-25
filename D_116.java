@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class D_116 {
+    private class Node{
+        int val;
+        Node left;
+        Node right;
+        Node next;
+    }
     public Node connect(Node root) {
         if(root == null){
             return root;
