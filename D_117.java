@@ -6,6 +6,12 @@ public class D_117 {
      * 递归：对于任意一个节点，判断:孩子节点是否存在，都存在，作左右相连，判断是否root.next存在。存在则连接到next的第一个孩子节点。
      * 只存在一个，直接进行next第一个孩子节点的连接。
      */
+  private class Node{
+      int val;
+      Node left;
+      Node right;
+      Node next;
+  }
   public Node connect(Node root) {
       if(root == null){
           return null;
