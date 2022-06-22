@@ -1,0 +1,12 @@
+package com.fengtin.LeetCode;
+
+public class D_1518 {
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int res = numBottles;
+        while (numBottles >= numExchange){
+            res += numBottles / numExchange;
+            numBottles = numBottles % numExchange + numBottles / numExchange;
+        }
+        return res;
+    }
+}
