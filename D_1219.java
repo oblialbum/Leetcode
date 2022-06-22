@@ -7,8 +7,23 @@ public class D_1219 {
         int ans = 0;
         for(int i = 0;i < m;i++){
             for(int j = 0;j < n;j++){
-                if(grid[i][j] != 0){
-                    ans = Math.max(dfs(grid,i,j),ans);
+                if(grid[i][j] != 0) {
+                    int neighbor = 0;
+                    if (canMove(i + 1, j, grid)) {
+                        neighbor++;
+                    }
+                    if (canMove(i - 1, j, grid)) {
+                        neighbor++;
+                    }
+                    if (canMove(i, j + 1, grid)) {
+                        neighbor++;
+                    }
+                    if (canMove(i, j - 1, grid)) {
+                        neighbor++;
+                    }
+                    if (neighbor < 2) {
+                        ans = Math.max(dfs(grid, i, j), ans);
+                    }
                 }
             }
         }

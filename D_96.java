@@ -1,15 +1,22 @@
 package com.fengtin.LeetCode;
 
 public class D_96 {
-
+    /**
+     * dp[i]:表示当前节点数可以构成的二叉树有多少种。
+     * @param n
+     * @return
+     */
     public int numTrees(int n) {
-        int[] type = new int[n+1];
+        int[] type = new int[n + 1];
         type[0] = 1;
         type[1] = 1;
+        if(n == 1){
+            return 1;
+        }
         type[2] = 2;
-        for(int i = 3;i <= n;i++) {
+        for(int i = 3;i <= n;i++){
             for(int j = 1;j <= i;j++){
-             type[i] += type[j - 1] * type[i - j];
+                type[i] += type[j - 1] * type[i - j];
             }
         }
         return type[n];

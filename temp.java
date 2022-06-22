@@ -51,6 +51,7 @@ public class temp {
                 unduplicationFile.add(s);
             }
         }
+        return;
     }
 
     private void moveFile(){
@@ -65,13 +66,32 @@ public class temp {
         }
     }
 
+    int count = 0;
+    private void dfs(String filePath){
+        File file = new File(filePath);
+        if(file.isDirectory()){
+            File[] files = file.listFiles();
+            for (File temp: files
+                 ) {
+                dfs(temp.getAbsolutePath());
+            }
+        }
+        else{
+            String name = file.getName();
+            if(name.equals("slide.clean_tika.xml")){
+                System.out.println(name+":delete successful" + (count++));
+                file.delete();
+                return;
+            }
+        }
+    }
+
     public static void main(String[] args){
         temp temp = new temp();
         temp.getXml();
         temp.getPdf();
         temp.getUnduplication();
         temp.moveFile();
-        System.out.println(temp.xmlFile.size()+","+temp.pdfFile.size());
-        System.out.println(temp.unduplicationFile);
+
     }
 }

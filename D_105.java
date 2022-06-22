@@ -39,7 +39,4 @@ public class D_105 {
         return root;
     }
 
-    public static void main(String[] args){
-        System.out.println(new D_105().buildTree(new int[]{1,2,3},new int[]{2,3,1}));
-    }
 }
